@@ -29,6 +29,11 @@ function getValue() {
       current.style.top = (event.pageY - offsetY) + 'px';
       current.style.left = (event.pageX - offsetX) + 'px';
     });
+    value.addEventListener('dragover', function (event) {
+      if (event.target.className === 'value') {
+        [value.style.top, value.style.left] = [current.style.top, current.style.left];
+      }
+    })
   })
 }
 
